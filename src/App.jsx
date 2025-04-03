@@ -23,6 +23,8 @@ import DemoRequestPopup from './pages/DemoRequestPopup/DemoRequestPopup'; // ✅
 import BookADemo from './pages/BookADemo/BookADemo'; // ✅ Import the popup
 import FreeTrial from './pages/FreeTrial/FreeTrial'; // ✅ Import the popup
 import NewProject from './pages/NewProject/NewProject';
+import Dashboard from './Project/Dashboard';
+// import NewProjectModal from './Project/NewProjectModal';
 // import Upload from './pages/Upload/Upload';
 
 
@@ -74,6 +76,8 @@ function App() {
         <Route path="/book-a-demo" element={<BookADemo />} />
         <Route path="/free-trial" element={<FreeTrial />} />
         <Route path="/new-project" element={<NewProject />} />
+        <Route path="/get-started" element={<Dashboard />} />
+        {/* <Route path="/get-started" element={<NewProjectModal />} /> */}
         {/* <Route path="/upload" element={<Upload />} /> */}
       
       </Routes>

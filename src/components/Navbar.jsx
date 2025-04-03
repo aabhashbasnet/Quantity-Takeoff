@@ -158,6 +158,12 @@ const Navbar = () => {
             >
               Sign Up
             </a>
+            <a
+              href="/get-started"
+              className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700"
+            >
+              Get Started
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -212,6 +218,12 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
               >
                 Sign Up
+              </a>
+              <a
+                href="/get-started"
+                className="block px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700"
+              >
+                Get Started
               </a>
             </div>
           </div>
