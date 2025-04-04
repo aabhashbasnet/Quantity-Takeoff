@@ -1,53 +1,123 @@
-import React from 'react';
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from "lucide-react"
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        {/* Company Info */}
-        <div className="mb-6">
-          <h2 className="text-2xl font-bold">AI-Powered Takeoff Software</h2>
-          <p className="text-sm text-gray-400 mt-2 max-w-xl mx-auto">
-            Streamline your construction estimation process with AI-driven precision and automation.
-          </p>
-        </div>
-        
-        {/* Navigation Links */}
-        <div className="flex flex-wrap justify-center gap-6 mt-6">
-          <a href="#" className="text-gray-400 hover:text-white transition">Home</a>
-          <a href="#" className="text-gray-400 hover:text-white transition">Features</a>
-          <a href="#" className="text-gray-400 hover:text-white transition">Portfolio</a>
-          <a href="#" className="text-gray-400 hover:text-white transition">About Us</a>
-          <a href="#" className="text-gray-400 hover:text-white transition">Contact</a>
-        </div>
+    <footer className="bg-slate-900 text-white">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-4">
+            <h3 className="text-xl font-bold">Quantity Takeoff</h3>
+            <p className="text-slate-300 text-sm">
+              Professional quantity takeoff software for construction estimators, contractors, and engineers.
+            </p>
+            <div className="flex space-x-4 pt-2">
+              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+                <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
+              </a>
+              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+                <Twitter className="h-5 w-5" />
+                <span className="sr-only">Twitter</span>
+              </a>
+              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+                <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </a>
+              <a href="#" className="text-slate-300 hover:text-white transition-colors">
+                <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </a>
+            </div>
+          </div>
 
-        {/* Social Media Links */}
-        <div className="flex justify-center gap-4 mt-6">
-          <a href="#" className="text-gray-400 hover:text-white transition text-xl"><FaFacebook /></a>
-          <a href="#" className="text-gray-400 hover:text-white transition text-xl"><FaTwitter /></a>
-          <a href="#" className="text-gray-400 hover:text-white transition text-xl"><FaLinkedin /></a>
-          <a href="#" className="text-gray-400 hover:text-white transition text-xl"><FaInstagram /></a>
-        </div>
+          {/* Quick Links */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Quick Links</h3>
+            <ul className="space-y-2">
 
-        {/* Newsletter Signup */}
-        <div className="mt-8 max-w-md mx-auto">
-          <p className="text-gray-400 text-sm mb-2">Subscribe to our newsletter for updates</p>
-          <div className="flex items-center border border-gray-600 rounded-lg overflow-hidden">
-            <input 
-              type="email" 
-              placeholder="Enter your email" 
-              className="flex-grow px-4 py-2 bg-gray-800 text-white border-none focus:outline-none"
-            />
-            <button className="bg-yellow-600 px-4 py-2 text-white font-semibold hover:bg-yellow-700 transition">Subscribe</button>
+              <li>
+                <a href="/blog" className="text-slate-300 hover:text-white transition-colors text-sm">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="/about" className="text-slate-300 hover:text-white transition-colors text-sm">
+                  About Us
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Resources</h3>
+            <ul className="space-y-2">
+              <li>
+                <a href="/help" className="text-slate-300 hover:text-white transition-colors text-sm">
+                  Help Center
+                </a>
+              </li>
+              <li>
+                <a href="/tutorials" className="text-slate-300 hover:text-white transition-colors text-sm">
+                  Video Tutorials
+                </a>
+              </li>
+              <li>
+                <a href="/careers" className="text-slate-300 hover:text-white transition-colors text-sm">
+                  Careers
+                </a>
+              </li>
+              <li>
+                <a href="/portfolio" className="text-slate-300 hover:text-white transition-colors text-sm">
+                  Portfolio
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h3 className="text-lg font-semibold">Contact Us</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <Phone className="h-5 w-5 mr-2 text-slate-400 flex-shrink-0 mt-0.5" />
+                <span className="text-slate-300 text-sm">+1 (555) 123-4567</span>
+              </li>
+              <li className="flex items-start">
+                <Mail className="h-5 w-5 mr-2 text-slate-400 flex-shrink-0 mt-0.5" />
+                <span className="text-slate-300 text-sm">support@quantitake.com</span>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="h-5 w-5 mr-2 text-slate-400 flex-shrink-0 mt-0.5" />
+                <span className="text-slate-300 text-sm">
+                  123 Construction Ave, Suite 456
+                  <br />
+                  New York, NY 10001
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
-        
-        {/* Copyright */}
-        <p className="text-sm text-gray-500 mt-8">&copy; {new Date().getFullYear()} AI Takeoff Software. All rights reserved.</p>
+
+        <div className="border-t border-slate-700 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-slate-400 text-sm">&copy; {new Date().getFullYear()} QuantiTake. All rights reserved.</p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="/terms" className="text-slate-400 hover:text-white transition-colors text-sm">
+                Terms of Service
+              </a>
+              <a href="/privacy" className="text-slate-400 hover:text-white transition-colors text-sm">
+                Privacy Policy
+              </a>
+              <a href="/cookies" className="text-slate-400 hover:text-white transition-colors text-sm">
+                Cookie Policy
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;

@@ -1,3 +1,7 @@
 @import "tailwindcss";
 /* Add these keyframes for floating blobs */
 /* Add to your index.css */
+html {
+    scroll-behavior: smooth;
+  }
+  

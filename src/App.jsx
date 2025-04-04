@@ -24,6 +24,14 @@ import BookADemo from './pages/BookADemo/BookADemo'; // ✅ Import the popup
 import FreeTrial from './pages/FreeTrial/FreeTrial'; // ✅ Import the popup
 import NewProject from './pages/NewProject/NewProject';
 import Dashboard from './Project/Dashboard';
+import Blog from './pages/Blog/Blog';
+import HelpCenter from './pages/HelpCenter/HelpCenter';
+import VideoTutorials from './pages/VideoTutorials/VideoTutorials';
+import Documentation from './pages/Documentation/Documentation';
+import Careers from './pages/Careers/Careers';
+import Portfolio from './pages/Portfolio/Portfolio';
+// import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService/TermsOfService';
 // import NewProjectModal from './Project/NewProjectModal';
 // import Upload from './pages/Upload/Upload';
 
@@ -77,6 +85,14 @@ function App() {
         <Route path="/free-trial" element={<FreeTrial />} />
         <Route path="/new-project" element={<NewProject />} />
         <Route path="/get-started" element={<Dashboard />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/help" element={<HelpCenter />} />
+        <Route path="/tutorials" element={<VideoTutorials />} />
+        <Route path="/documentation" element={<Documentation />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        {/* <Route path="/privacy" element={<PrivacyPolicy />} /> */}
+        <Route path="/terms" element={<TermsOfService />} />
         {/* <Route path="/get-started" element={<NewProjectModal />} /> */}
         {/* <Route path="/upload" element={<Upload />} /> */}
       
