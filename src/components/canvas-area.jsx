@@ -3,9 +3,6 @@
 import { useRef, useEffect, useState } from "react"
 import { MousePointer, Ruler, Square, Circle, Pencil, Type, Move, Layers, Trash2 } from "lucide-react"
 
-// Note: In a real implementation, you would use React Konva for the canvas
-// This is a simplified version for demonstration purposes
-
 const CanvasArea = ({ onElementSelect }) => {
   const canvasRef = useRef(null)
   const [activeTool, setActiveTool] = useState("select")
@@ -23,8 +20,6 @@ const CanvasArea = ({ onElementSelect }) => {
 
   // Simulate selecting an element
   const handleCanvasClick = (e) => {
-    // In a real app, this would detect if an element was clicked
-    // For demo purposes, we'll just create a mock element
     if (activeTool === "select") {
       const mockElement = {
         id: Math.floor(Math.random() * 1000),
@@ -78,56 +73,6 @@ const CanvasArea = ({ onElementSelect }) => {
         ctx.stroke()
       }
     }
-
-    // Draw a sample floor plan (just for visualization)
-    ctx.strokeStyle = "#3B82F6"
-    ctx.lineWidth = 2
-
-    // Outer walls
-    ctx.beginPath()
-    ctx.rect(100, 100, 600, 400)
-    ctx.stroke()
-
-    // Inner walls
-    ctx.beginPath()
-    ctx.moveTo(350, 100)
-    ctx.lineTo(350, 300)
-    ctx.stroke()
-
-    ctx.beginPath()
-    ctx.moveTo(350, 300)
-    ctx.lineTo(700, 300)
-    ctx.stroke()
-
-    ctx.beginPath()
-    ctx.moveTo(500, 300)
-    ctx.lineTo(500, 500)
-    ctx.stroke()
-
-    // Windows
-    ctx.strokeStyle = "#60A5FA"
-    ctx.lineWidth = 1
-
-    // Window 1
-    ctx.beginPath()
-    ctx.rect(150, 100, 80, 5)
-    ctx.stroke()
-
-    // Window 2
-    ctx.beginPath()
-    ctx.rect(500, 100, 80, 5)
-    ctx.stroke()
-
-    // Window 3
-    ctx.beginPath()
-    ctx.rect(100, 250, 5, 80)
-    ctx.stroke()
-
-    // Door
-    ctx.strokeStyle = "#9333EA"
-    ctx.beginPath()
-    ctx.arc(350, 150, 40, 0, Math.PI, true)
-    ctx.stroke()
   }, [showGrid])
 
   return (
@@ -166,7 +111,13 @@ const CanvasArea = ({ onElementSelect }) => {
 
       {/* Canvas */}
       <div className="flex-1 overflow-auto relative bg-gray-50">
-        <canvas ref={canvasRef} width={1000} height={800} onClick={handleCanvasClick} className="cursor-crosshair" />
+        <canvas
+          ref={canvasRef}
+          width={1600} // Increased canvas width
+          height={1200} // Increased canvas height
+          onClick={handleCanvasClick}
+          className="cursor-crosshair"
+        />
 
         {/* Floating tooltip - would appear when hovering over elements */}
         <div className="absolute hidden bg-white shadow-lg rounded-md p-2 border border-gray-200 text-sm">
@@ -180,4 +131,3 @@ const CanvasArea = ({ onElementSelect }) => {
 }
 
 export default CanvasArea
-

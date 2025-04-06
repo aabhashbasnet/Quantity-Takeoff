@@ -1,43 +1,101 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const CTA = () => (
-  <section className="relative py-24 bg-gradient-to-br from-blue-900 to-purple-900 overflow-hidden">
+  <section className="relative py-24 bg-gradient-to-br from-blue-800 via-indigo-800 to-blue-900 overflow-hidden">
     {/* Animated background elements */}
-    <div className="absolute top-0 left-0 w-full h-full opacity-20">
-      <div className="absolute top-20 left-1/4 w-48 h-48 bg-blue-600 rounded-full mix-blend-screen opacity-30 animate-float"></div>
-      <div className="absolute bottom-10 right-1/4 w-56 h-56 bg-blue-500 rounded-full mix-blend-screen opacity-30 animate-float-delayed"></div>
+    <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply opacity-20 blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply opacity-20 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply opacity-10 blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
     </div>
 
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-300">
-          Transform Your Estimating Process
-        </h2>
-        <p className="text-xl md:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto">
-          Join thousands of construction professionals already accelerating their workflows
-        </p>
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span className="inline-block px-4 py-1.5 bg-blue-700/30 text-blue-100 rounded-full text-sm font-medium mb-4">
+            Ready to Get Started?
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            Transform Your Estimating Process Today
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            Join thousands of construction professionals already accelerating their workflows and winning more bids with our platform.
+          </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-6">
-          {/* Start Free Trial button as Link */}
-          <Link to="/free-trial" className="group relative px-8 py-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-400 hover:to-purple-400 transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105">
-            <span className="text-white font-semibold text-lg relative z-10">
+          <ul className="space-y-3 mb-10">
+            {[
+              "14-day free trial with full access",
+              "No credit card required to start",
+              "Dedicated onboarding support",
+              "Cancel anytime, no commitments"
+            ].map((item, index) => (
+              <li key={index} className="flex items-center text-blue-100">
+                <CheckCircle className="h-5 w-5 mr-3 text-blue-300" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            {/* Start Free Trial button as Link */}
+            <Link 
+              to="/free-trial" 
+              className="group relative px-8 py-4 rounded-lg bg-white text-blue-800 hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold text-center"
+            >
               Start Free Trial
-            </span>
-            <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white/10 to-white/5"></div>
-            <div className="absolute top-0 left-1/2 w-0 h-full bg-white/20 group-hover:w-full transition-all duration-500 -translate-x-1/2"></div>
-          </Link>
+              <ArrowRight className="inline-block ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
 
-          {/* Schedule Demo button as Link */}
-          <Link to="/schedule-demo" className="group relative px-8 py-4 rounded-full border-2 border-blue-300 hover:border-purple-300 bg-transparent hover:bg-white/5 transition-all duration-300 transform hover:scale-105">
-            <span className="text-blue-100 group-hover:text-purple-200 font-semibold text-lg">
-              Schedule Demo
-            </span>
-            <div className="absolute inset-0 rounded-full border-2 border-transparent group-hover:border-purple-300/30 transition-all duration-300"></div>
-          </Link>
+            {/* Schedule Demo button as Link */}
+            <Link 
+              to="/schedule-demo" 
+              className="group relative px-8 py-4 rounded-lg border-2 border-blue-300 hover:border-white bg-transparent hover:bg-blue-800/30 transition-all duration-300 text-center"
+            >
+              <span className="text-blue-100 group-hover:text-white font-semibold">
+                Schedule Demo
+              </span>
+            </Link>
+          </div>
         </div>
 
-        <div className="mt-8 text-sm text-blue-200">
-          No credit card required • 14-day free trial • Cancel anytime
+        {/* Testimonial Card */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20 relative">
+          <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-indigo-500 text-white px-6 py-2 rounded-lg shadow-lg">
+            <span className="text-sm font-semibold">Customer Success</span>
+          </div>
+          
+          <div className="flex items-center mb-6">
+            <img 
+              src="https://randomuser.me/api/portraits/men/32.jpg" 
+              alt="Customer" 
+              className="w-16 h-16 rounded-full border-4 border-white/20"
+            />
+            <div className="ml-4">
+              <h4 className="text-white font-bold">James Wilson</h4>
+              <p className="text-blue-200">Director, Wilson Construction</p>
+            </div>
+          </div>
+          
+          <blockquote className="text-blue-100 italic mb-6">
+            "After implementing this platform, we've reduced our estimation time by 70% and increased our bid win rate by 35%. The ROI has been incredible."
+          </blockquote>
+          
+          <div className="flex justify-between items-center border-t border-white/10 pt-6">
+            <div className="text-white">
+              <div className="text-3xl font-bold">35%</div>
+              <div className="text-blue-200 text-sm">Increased Win Rate</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl font-bold">70%</div>
+              <div className="text-blue-200 text-sm">Time Saved</div>
+            </div>
+            <div className="text-white">
+              <div className="text-3xl font-bold">5x</div>
+              <div className="text-blue-200 text-sm">ROI</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
