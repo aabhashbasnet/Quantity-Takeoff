@@ -1,4 +1,3 @@
-"use client"
 import { ChevronUp, ChevronDown, Download, Trash2, Plus } from "lucide-react"
 
 const BottomPanel = ({ takeoffItems, collapsed, togglePanel }) => {
@@ -7,7 +6,7 @@ const BottomPanel = ({ takeoffItems, collapsed, togglePanel }) => {
   return (
     <div
       className={`border-t border-gray-200 bg-white transition-all duration-300 ease-in-out ${
-        collapsed ? "h-10" : "h-64"
+        collapsed ? "h-16" : "h-[calc(100vh-200px)]"
       }`}
     >
       {/* Header */}
@@ -19,13 +18,17 @@ const BottomPanel = ({ takeoffItems, collapsed, togglePanel }) => {
           </span>
         </div>
         <div className="flex items-center space-x-2">
-          <button className="p-1 rounded-md hover:bg-gray-100 transition-colors">
+          <button className="p-1 rounded-md hover:bg-gray-100 transition-colors" aria-label="Download">
             <Download className="h-4 w-4 text-gray-600" />
           </button>
-          <button className="p-1 rounded-md hover:bg-gray-100 transition-colors">
+          <button className="p-1 rounded-md hover:bg-gray-100 transition-colors" aria-label="Add Item">
             <Plus className="h-4 w-4 text-gray-600" />
           </button>
-          <button onClick={togglePanel} className="p-1 rounded-md hover:bg-gray-100 transition-colors">
+          <button
+            onClick={togglePanel}
+            className="p-1 rounded-md hover:bg-gray-100 transition-colors"
+            aria-label={collapsed ? "Expand Panel" : "Collapse Panel"}
+          >
             {collapsed ? (
               <ChevronUp className="h-4 w-4 text-gray-600" />
             ) : (
@@ -37,46 +40,19 @@ const BottomPanel = ({ takeoffItems, collapsed, togglePanel }) => {
 
       {/* Table */}
       {!collapsed && (
-        <div className="overflow-auto h-[calc(100%-36px)]">
+        <div className="overflow-auto h-[calc(100%-48px)]"> {/* Adjust the height here */}
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Type
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Description
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Quantity
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Unit
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Length/Area
-                </th>
-                <th
-                  scope="col"
-                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                >
-                  Cost
-                </th>
+                {['Type', 'Description', 'Quantity', 'Unit', 'Length/Area', 'Cost'].map((header, index) => (
+                  <th
+                    key={index}
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
+                    {header}
+                  </th>
+                ))}
                 <th scope="col" className="relative px-6 py-3">
                   <span className="sr-only">Actions</span>
                 </th>
@@ -94,7 +70,7 @@ const BottomPanel = ({ takeoffItems, collapsed, togglePanel }) => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">${item.cost.toLocaleString()}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button className="text-red-600 hover:text-red-900">
+                    <button className="text-red-600 hover:text-red-900" aria-label="Delete Item">
                       <Trash2 className="h-4 w-4" />
                     </button>
                   </td>
@@ -120,4 +96,3 @@ const BottomPanel = ({ takeoffItems, collapsed, togglePanel }) => {
 }
 
 export default BottomPanel
-

@@ -75,18 +75,21 @@ export default function Navbar() {
                 <div className="py-1 rounded-md overflow-hidden">
                   <Link
                     to="/contractors"
+                    onClick={()=>setActiveDropdown(null)}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition-colors duration-200"
                   >
                     Contractors
                   </Link>
                   <Link
                     to="/sub-contractors"
+                    onClick={()=>setActiveDropdown(null)}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition-colors duration-200"
                   >
                     Sub Contractors
                   </Link>
                   <Link
                     to="/suppliers"
+                    onClick={()=>setActiveDropdown(null)}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition-colors duration-200"
                   >
                     Suppliers
@@ -116,24 +119,28 @@ export default function Navbar() {
                 <div className="py-1 rounded-md overflow-hidden">
                   <Link
                     to="/landscaping"
+                    onClick={()=>setActiveDropdown(null)}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition-colors duration-200"
                   >
                     Landscaping
                   </Link>
                   <Link
                     to="/paving"
+                    onClick={()=>setActiveDropdown(null)}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition-colors duration-200"
                   >
                     Paving
                   </Link>
                   <Link
                     to="/facilities-maintainance"
+                    onClick={()=>setActiveDropdown(null)}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition-colors duration-200"
                   >
                     Facilities & Maintainance
                   </Link>
                   <Link
                     to="/general-construction"
+                    onClick={()=>setActiveDropdown(null)}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500 transition-colors duration-200"
                   >
                     General Construction
@@ -356,4 +363,3 @@ export default function Navbar() {
     </nav>
   )
 }
-

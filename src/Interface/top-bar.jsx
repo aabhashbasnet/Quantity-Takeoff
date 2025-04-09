@@ -28,7 +28,8 @@ const TopBar = ({
   ]
 
   return (
-    <div className="h-14 border-b border-gray-200 bg-white flex items-center px-4 justify-between">
+    <div className="mt-14 h-14 border-b border-gray-200 bg-white flex items-center px-4 justify-between">
+
       <div className="flex items-center">
         <h1 className="text-lg font-semibold text-gray-800 mr-8">{projectName}</h1>
 

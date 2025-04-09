@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import Sidebar from "../components/sidebar"
-import TopBar from "../components/top-bar"
-import CanvasArea from "../components/canvas-area"
-import RightPanel from "../components/right-panel"
-import BottomPanel from "../components/bottom-panel"
+import Sidebar from "../Interface/sidebar"
+import TopBar from "../Interface/top-bar"
+import CanvasArea from "../Interface/canvas-area"
+import RightPanel from "../Interface/right-panel"
+import BottomPanel from "../Interface/bottom-panel"
 
 function Dashboard() {
   const [currentProject, setCurrentProject] = useState("Commercial Building Project")
