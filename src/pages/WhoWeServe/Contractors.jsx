@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 const Contractors = () => {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}

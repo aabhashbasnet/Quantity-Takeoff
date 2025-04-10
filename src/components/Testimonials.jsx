@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import WavyBackground from './WavyBackground';
 const testimonials = [
   {
     id: 1,
@@ -263,6 +263,7 @@ const Testimonials = () => {
           </div>
         </div>
       </div>
+      <WavyBackground />
     </section>
   );
 };

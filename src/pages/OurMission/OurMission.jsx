@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import 'animate.css';
 import { FaLightbulb, FaShieldAlt, FaUsers, FaLeaf } from 'react-icons/fa';
 import innovation from '../../assets/innovation.jpg'
@@ -6,8 +6,11 @@ import quality from '../../assets/quality.jpg'
 import future from '../../assets/future.jpg'
 import values from '../../assets/values.jpg'
 const OurMission = () => {
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   return (
-    <section className="min-h-screen bg-gradient-to-b from-indigo-50 to-white py-16">
+    <section className="min-h-screen bg-gradient-to-b from-indigo-50 to-white py-16 mt-16">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header Section */}
         <header className="text-center mb-16">

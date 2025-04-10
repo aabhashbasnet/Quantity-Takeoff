@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import "animate.css"
 import interfaces from "../assets/interface.jpg"
+import WavyBackground from "./WavyBackground"
 
 const Hero = () => {
   // Add scroll reveal effect
@@ -128,11 +129,7 @@ const Hero = () => {
       </div>
 
       {/* Wave Decoration */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg className="w-full h-24 text-white" viewBox="0 0 1440 150" preserveAspectRatio="none" fill="currentColor">
-          <path d="M0,96L48,106.7C96,117,192,139,288,138.7C384,139,480,117,576,112C672,107,768,117,864,128C960,139,1056,149,1152,138.7C1248,128,1344,96,1392,80L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
-      </div>
+      <WavyBackground />
     </section>
   )
 }

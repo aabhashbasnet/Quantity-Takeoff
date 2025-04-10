@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 const Paving = () => {
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}

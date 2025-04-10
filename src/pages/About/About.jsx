@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'animate.css';
 import aboutImage from '../../assets/about.jpeg'; // Replace with your image path
 import { FaRegBuilding, FaTools, FaUserFriends } from 'react-icons/fa';
 
 const About = () => {
+  // Scroll to top when the component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <section className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-16">
+    <section className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-20 mt-16">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <header className="text-center mb-12 animate__animated animate__fadeInDown">
-          <h1 className="text-5xl font-bold text-gray-800">About Us</h1>
+          <h1 className="text-5xl font-bold text-indigo-800">About Us</h1>
           <p className="text-xl text-gray-600 mt-4">
             Innovating Construction Estimation, One Project at a Time
           </p>
@@ -66,7 +71,7 @@ const About = () => {
 
         {/* Extended About Content */}
         <div className="mt-16 animate__animated animate__fadeInUp">
-          <h2 className="text-4xl font-bold text-gray-800 text-center mb-6">
+          <h2 className="text-4xl font-bold text-indigo-800 text-center mb-6">
             Our Story
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed mb-4">

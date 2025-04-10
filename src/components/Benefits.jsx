@@ -1,4 +1,5 @@
 import { Clock, FileCheck, HeadphonesIcon, BarChart3 } from "lucide-react"
+import WavyBackground from "./WavyBackground"
 
 const Benefits = () => {
   const benefits = [
@@ -133,6 +134,7 @@ const Benefits = () => {
           ></path>
         </svg>
       </div>
+      <WavyBackground />
     </section>
   )
 }
