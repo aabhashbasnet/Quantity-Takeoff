@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ScrollToTop from "../../components/Buttons/ScrollToTop";
 
 const VideoTutorials = () => {
   // Sample video tutorial data (can be replaced with API data)
@@ -45,7 +46,8 @@ const VideoTutorials = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100  px-4 sm:px-6 lg:px-8 py-16 mt-16">
+      <ScrollToTop />
       {/* Header Section */}
       <div className="max-w-7xl mx-auto text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">

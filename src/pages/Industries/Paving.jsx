@@ -1,11 +1,12 @@
 import React,{useEffect} from 'react';
+import BookADemo from '../../components/Buttons/BookADemo';
 
 const Paving = () => {
       useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-16 mt-16">
       {/* Hero Section */}
       <section className="pt-24 pb-16 text-center">
         <div className="max-w-7xl mx-auto px-6">
@@ -16,9 +17,7 @@ const Paving = () => {
             Automate measurements, material estimation, and bidding processes for paving projects with precision.
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-gray-700 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-800 transition-all">
-              Get Started
-            </button>
+            <BookADemo className='bg-gray-600 hover:bg-gray-700'/>
             <button className="border-2 border-gray-700 text-gray-700 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all">
               Learn More
             </button>

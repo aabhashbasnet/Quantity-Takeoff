@@ -1,4 +1,6 @@
-import { Ruler, Users, FileOutput, Zap, Clock, Shield, BarChart3, Smartphone, Cloud } from "lucide-react"
+import React from "react"; // Add this line
+import { Ruler, Users, FileOutput, Zap, Clock, Shield, BarChart3, Smartphone, Cloud } from "lucide-react";
+import {Link} from "react-router-dom";
 
 const Features = () => {
   const featuresList = [
@@ -56,40 +58,39 @@ const Features = () => {
       icon: <Cloud className="w-6 h-6" />,
       color: "from-blue-500 to-blue-600",
     },
-  ]
+  ];
 
   return (
     <section id="features" className="py-20 bg-gradient-to-b from-white to-blue-50 relative">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-40 right-10 w-72 h-72 bg-blue-100 rounded-full opacity-30 blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-80 h-80 bg-indigo-100 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute top-[20%] right-[10%] w-[25%] h-[25%] bg-blue-100 rounded-full opacity-30 blur-3xl"></div>
+        <div className="absolute bottom-[20%] left-[10%] w-[25%] h-[25%] bg-indigo-100 rounded-full opacity-30 blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
             Powerful Features
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our platform combines cutting-edge technology with user-friendly design to streamline your quantity takeoff
-            process.
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
+            Our platform combines cutting-edge technology with user-friendly design to streamline your quantity takeoff process.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {featuresList.map((feature, index) => (
             <div
               key={feature.title}
-              className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 sm:hover:shadow-xl sm:hover:-translate-y-1"
             >
               <div className="p-6">
                 <div
                   className={`inline-flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-r ${feature.color} text-white mb-5 group-hover:scale-110 transition-transform duration-300`}
                 >
-                  {feature.icon}
+                  {React.cloneElement(feature.icon, { className: "w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10" })}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-semibold mb-3 text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600">{feature.desc}</p>
@@ -101,10 +102,10 @@ const Features = () => {
           ))}
         </div>
 
-        {/* Beautiful Separator Line */}
+        {/* Separator Line */}
         <div className="relative mt-24 mb-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-200"></div>
+            <div className="w-full border-t border-gray-200 sm:border-t-2"></div>
           </div>
           <div className="relative flex justify-center">
             <span className="bg-gradient-to-r from-blue-50 via-white to-blue-50 px-6 text-blue-500">
@@ -128,9 +129,9 @@ const Features = () => {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <h3 className="text-2xl font-semibold mb-6 text-gray-800">Ready to experience these features?</h3>
-          <a
-            href="#demo"
-            className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1"
+          <Link
+            to="/book-a-demo"
+            className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium shadow-lg hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-1"
           >
             Request a Demo
             <svg
@@ -142,12 +143,11 @@ const Features = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Features
-
+export default Features;

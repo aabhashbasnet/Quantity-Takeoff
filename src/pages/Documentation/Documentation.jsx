@@ -1,8 +1,11 @@
 import React from 'react'
+import ScrollToTop from "../../components/Buttons/ScrollToTop";
 
 const Documentation = () => {
+  
   return (
-    <section id="documentation" className="py-20 bg-gray-50 text-gray-800">
+    <section id="documentation" className=" bg-gray-50 text-gray-800 py-16 mt-16">
+      <ScrollToTop />
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">Documentation</h2>
 

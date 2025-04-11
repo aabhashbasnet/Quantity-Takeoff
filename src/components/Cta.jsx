@@ -50,7 +50,7 @@ const CTA = () => (
 
             {/* Schedule Demo button as Link */}
             <Link 
-              to="/schedule-demo" 
+              to="/book-a-demo" 
               className="group relative px-8 py-4 rounded-lg border-2 border-blue-300 hover:border-white bg-transparent hover:bg-blue-800/30 transition-all duration-300 text-center"
             >
               <span className="text-blue-100 group-hover:text-white font-semibold">

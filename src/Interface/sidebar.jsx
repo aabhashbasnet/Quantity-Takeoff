@@ -1,70 +1,146 @@
-"use client"
-import { Home, FolderOpen, Upload, BarChart2, Settings, User, LogOut, ChevronLeft, ChevronRight } from "lucide-react"
+// "use client"
+// import { Home, Folder, Upload, BarChart2, Settings, ChevronLeft, ChevronRight } from "lucide-react"
 
-const Sidebar = ({ collapsed, toggleSidebar }) => {
+// const Sidebar = ({ collapsed, toggleSidebar, activeNavItem, onNavigate }) => {
+//   const menuItems = [
+//     { id: "dashboard", icon: Home, label: "Dashboard", path: "/dashboard" },
+//     { id: "projects", icon: Folder, label: "Projects", path: "/projects" },
+//     { id: "upload", icon: Upload, label: "Upload Drawings", path: "/upload" },
+//     { id: "reports", icon: BarChart2, label: "Reports", path: "/reports" },
+//     { id: "settings", icon: Settings, label: "Settings", path: "/settings" },
+//   ]
+
+//   return (
+//     <div
+//       className={`flex flex-col h-screen bg-slate-800 text-white shadow-lg ${
+//         collapsed ? "w-16" : "w-64"
+//       } transition-all duration-300 ease-in-out`}
+//     >
+//       <div className="p-4 flex items-center justify-between">
+//         <span
+//           className={`text-2xl font-bold ${collapsed ? "hidden" : "block"} transition-all duration-300 ease-in-out`}
+//         >
+//           Quantity Takeoff
+//         </span>
+//         <button onClick={toggleSidebar} className="p-2 hover:bg-slate-700 rounded">
+//           {collapsed ? <ChevronRight /> : <ChevronLeft />}
+//         </button>
+//       </div>
+
+//       <nav className="flex-grow p-4">
+//         <ul>
+//           {menuItems.map((item) => (
+//             <li key={item.id} className="mb-2">
+//               <a
+//                 href="#"
+//                 onClick={(e) => {
+//                   e.preventDefault()
+//                   onNavigate(item.id)
+//                 }}
+//                 className={`flex items-center p-2 rounded-md transition-colors group ${
+//                   activeNavItem === item.id
+//                     ? "bg-slate-700 text-white"
+//                     : "hover:bg-slate-700 text-slate-300 hover:text-white"
+//                 }`}
+//               >
+//                 <item.icon className="mr-2 h-5 w-5" />
+//                 <span className={`${collapsed ? "hidden" : "block"} transition-all duration-300 ease-in-out`}>
+//                   {item.label}
+//                 </span>
+//               </a>
+//             </li>
+//           ))}
+//         </ul>
+//       </nav>
+
+//       <div className="p-4 text-center text-slate-400">
+//         <p className="text-sm">© 2023 My App</p>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Sidebar
+
+
+"use client"
+import {
+  Home,
+  Folder,
+  Upload,
+  BarChart2,
+  Settings,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react"
+
+const Sidebar = ({ collapsed, toggleSidebar, activeNavItem, onNavigate }) => {
   const menuItems = [
-    { icon: Home, label: "Dashboard", path: "/dashboard" },
-    { icon: FolderOpen, label: "Projects", path: "/projects" },
-    { icon: Upload, label: "Upload Drawings", path: "/upload" },
-    { icon: BarChart2, label: "Reports", path: "/reports" },
-    { icon: Settings, label: "Settings", path: "/settings" },
+    { id: "dashboard", icon: Home, label: "Dashboard", path: "/dashboard" },
+    { id: "projects", icon: Folder, label: "Projects", path: "/projects" },
+    { id: "upload", icon: Upload, label: "Upload Drawings", path: "/upload" },
+    { id: "reports", icon: BarChart2, label: "Reports", path: "/reports" },
+    { id: "settings", icon: Settings, label: "Settings", path: "/settings" },
   ]
 
   return (
     <div
-      className={`bg-slate-800 text-white transition-all duration-300 ease-in-out h-full flex flex-col ${
+      className={`flex flex-col h-screen bg-slate-800 text-white shadow-lg ${
         collapsed ? "w-16" : "w-64"
-      }`}
+      } transition-all duration-300 ease-in-out`}
     >
-      {/* Logo */}
-      <div className="flex items-center justify-between p-4 border-b border-slate-700">
+      {/* Header */}
+      <div className={`p-4 flex ${collapsed ? "justify-center" : "justify-between"} items-center`}>
         {!collapsed && (
-          <div className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-            QuantiTake
-          </div>
+          <span className="text-2xl font-bold transition-all duration-300 ease-in-out">
+            Quantity Takeoff
+          </span>
         )}
-        <button onClick={toggleSidebar} className="p-1 rounded-md hover:bg-slate-700 transition-colors">
-          {collapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+        <button
+          onClick={toggleSidebar}
+          className="p-2 hover:bg-slate-700 rounded"
+        >
+          {collapsed ? <ChevronRight /> : <ChevronLeft />}
         </button>
       </div>
 
-      {/* Navigation Items */}
-      <div className="flex-1 overflow-y-auto py-4">
-        <ul className="space-y-2 px-2">
-          {menuItems.map((item, index) => (
-            <li key={index}>
+      {/* Navigation */}
+      <nav className="flex-grow px-2">
+        <ul>
+          {menuItems.map((item) => (
+            <li key={item.id} className="mb-2">
               <a
-                href={item.path}
-                className="flex items-center p-2 rounded-md hover:bg-slate-700 transition-colors group"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault()
+                  onNavigate(item.id)
+                }}
+                className={`flex items-center space-x-3 p-2 rounded-md transition-all group ${
+                  activeNavItem === item.id
+                    ? "bg-slate-700 text-white"
+                    : "hover:bg-slate-700 text-slate-300 hover:text-white"
+                }`}
               >
-                <item.icon className="h-5 w-5 text-slate-400 group-hover:text-white transition-colors" />
-                {!collapsed && <span className="ml-3 transition-opacity duration-200">{item.label}</span>}
+                <div className="flex justify-center items-center w-6">
+                  <item.icon className="h-5 w-5" />
+                </div>
+                {!collapsed && (
+                  <span className="whitespace-nowrap transition-all duration-300">
+                    {item.label}
+                  </span>
+                )}
               </a>
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
 
-      {/* User Profile & Logout */}
-      <div className="p-4 border-t border-slate-700">
-        <ul className="space-y-2">
-          <li>
-            <a href="/profile" className="flex items-center p-2 rounded-md hover:bg-slate-700 transition-colors group">
-              <User className="h-5 w-5 text-slate-400 group-hover:text-white transition-colors" />
-              {!collapsed && <span className="ml-3 transition-opacity duration-200">Profile</span>}
-            </a>
-          </li>
-          <li>
-            <a href="/logout" className="flex items-center p-2 rounded-md hover:bg-slate-700 transition-colors group">
-              <LogOut className="h-5 w-5 text-slate-400 group-hover:text-white transition-colors" />
-              {!collapsed && <span className="ml-3 transition-opacity duration-200">Logout</span>}
-            </a>
-          </li>
-        </ul>
+      {/* Footer */}
+      <div className="p-4 text-center text-slate-400">
+        {!collapsed && <p className="text-sm">© 2023 My App</p>}
       </div>
     </div>
   )
 }
 
 export default Sidebar
-

@@ -1,20 +1,67 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import 'animate.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import WavyBackground from '../../components/WavyBackground';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal visibility
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Implement your login logic here (e.g., API call, authentication, etc.)
+
+    // Simulated login logic (replace with real API call if needed)
     console.log('Logging in with:', email, password);
+
+    // ✅ Show success toast
+    toast.success("Login successful! Redirecting to dashboard...", {
+      position: "top-right",
+      autoClose: 1500,
+      hideProgressBar: true,
+      closeButton: false,
+      className: "toast-success",
+    });
+
+    // ✅ Redirect to dashboard after a short delay
+    setTimeout(() => {
+      navigate('/get-started');
+    }, 1600); // Adjusted to match toast duration
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleResetPassword = (e) => {
+    e.preventDefault();
+
+    // Simulate sending a reset password link
+    console.log('Reset password request sent for email:', email);
+
+    // Close the modal
+    closeModal();
+
+    // Show success toast
+    toast.success("Password reset link sent successfully!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeButton: false,
+      className: "toast-success",
+    });
   };
 
   return (
     <section className="min-h-screen bg-gray-100 flex items-center justify-center py-12">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg animate__animated animate__fadeInUp">
+      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg animate__animated animate__fadeInUp relative z-10">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Sign In</h2>
         <form onSubmit={handleLogin} className="space-y-6">
           {/* Email Field */}
@@ -49,7 +96,7 @@ const Login = () => {
             />
           </div>
 
-          {/* Remember Me & Forgot Password */}
+          {/* Remember Me */}
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <input
@@ -63,7 +110,7 @@ const Login = () => {
               </label>
             </div>
             <div className="text-sm">
-              <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+              <a href="#" onClick={openModal} className="font-medium text-blue-600 hover:text-blue-500">
                 Forgot your password?
               </a>
             </div>
@@ -87,7 +134,53 @@ const Login = () => {
             Sign up
           </Link>
         </p>
+
+        {/* ✅ Toast Container */}
+        <ToastContainer position="top-right" autoClose={2000} hideProgressBar={true} />
       </div>
+
+      {/* Modal for Forgot Password */}
+      {isModalOpen && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">Forgot Password</h3>
+            <p className="text-gray-600 mb-6">
+              Enter your email address and we'll send you instructions to reset your password.
+            </p>
+            <form onSubmit={handleResetPassword}>
+              <div>
+                <label htmlFor="forgot-email" className="block text-sm font-medium text-gray-700">
+                  Email Address
+                </label>
+                <input
+                  id="forgot-email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  className="mt-1 block w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                />
+              </div>
+              <div className="mt-6 flex justify-end space-x-4">
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-all"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-all"
+                >
+                  Send Reset Link
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      <WavyBackground />
     </section>
   );
 };

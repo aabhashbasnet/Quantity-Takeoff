@@ -1,11 +1,11 @@
 import React,{useEffect} from 'react';
-
+import BookADemo from '../../components/Buttons/BookADemo';
 const FacilitiesMaintenance = () => {
       useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white py-16 mt-16">
       {/* Hero Section */}
       <section className="pt-24 pb-16 text-center">
         <div className="max-w-7xl mx-auto px-6">
@@ -16,9 +16,7 @@ const FacilitiesMaintenance = () => {
             Streamline facility management with automated inspections, maintenance tracking, and cost estimation.
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition-all">
-              Get Started
-            </button>
+            <BookADemo />
             <button className="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all">
               Learn More
             </button>
@@ -66,6 +64,7 @@ const FacilitiesMaintenance = () => {
             </div>
           </div>
         </div>
+        
       </section>
     </div>
   );

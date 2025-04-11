@@ -1,11 +1,13 @@
 import React,{useEffect} from 'react';
+import BookADemo from '../../components/Buttons/BookADemo';
+import LearnMore from '../../components/Buttons/LearnMore';
 
 const Suppliers = () => {
       useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-orange-50 to-white py-16 mt-16">
       {/* Hero Section */}
       <section className="pt-24 pb-16 text-center">
         <div className="max-w-7xl mx-auto px-6">
@@ -16,16 +18,11 @@ const Suppliers = () => {
             Automate your takeoffs, improve accuracy, and process more estimates with our AI-powered solution.
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-orange-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-700 transition-all">
-              Book a Demo
-            </button>
-            <button className="border-2 border-orange-600 text-orange-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-orange-50 transition-all">
-              Learn More
-            </button>
+            <BookADemo className='bg-red-600 hover:bg-red-700'/>
+            <LearnMore variant='orange'/>
           </div>
         </div>
       </section>
-
       {/* Features Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">

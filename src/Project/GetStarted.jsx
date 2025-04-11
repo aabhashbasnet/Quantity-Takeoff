@@ -7,9 +7,10 @@ import CanvasArea from "../Interface/canvas-area"
 import RightPanel from "../Interface/right-panel"
 import BottomPanel from "../Interface/bottom-panel"
 
-function Dashboard() {
+function GetStarted() {
   const [currentProject, setCurrentProject] = useState("Commercial Building Project")
   const [selectedElement, setSelectedElement] = useState(null)
+  const [activeNavItem, setActiveNavItem] = useState("dashboard")
   const [takeoffItems, setTakeoffItems] = useState([
     {
       id: 1,
@@ -74,10 +75,29 @@ function Dashboard() {
     setBottomPanelCollapsed(!bottomPanelCollapsed)
   }
 
+  const handleNavigate = (itemId) => {
+    setActiveNavItem(itemId)
+
+    // If navigating to upload, we might want to collapse the right panel
+    if (itemId === "upload") {
+      setRightPanelCollapsed(true)
+    }
+  }
+
+  // Handle when images are imported and we want to return to canvas
+  const handleImagesImported = () => {
+    setActiveNavItem("dashboard")
+  }
+
   return (
     <div className="flex h-screen bg-gray-100 overflow-hidden">
-      {/* Sidebar */}
-      <Sidebar collapsed={sidebarCollapsed} toggleSidebar={toggleSidebar} />
+      {/* Sidebar - SINGLE INSTANCE */}
+      <Sidebar
+        collapsed={sidebarCollapsed}
+        toggleSidebar={toggleSidebar}
+        activeNavItem={activeNavItem}
+        onNavigate={handleNavigate}
+      />
 
       {/* Main Content */}
       <div className="flex flex-col flex-1 overflow-hidden">
@@ -90,7 +110,11 @@ function Dashboard() {
           <div
             className={`flex-1 overflow-hidden transition-all duration-300 ${!rightPanelCollapsed ? "mr-64" : "mr-0"}`}
           >
-            <CanvasArea onElementSelect={handleElementSelect} />
+            <CanvasArea
+              onElementSelect={handleElementSelect}
+              activeNavItem={activeNavItem}
+              onImagesImported={handleImagesImported}
+            />
           </div>
 
           {/* Right Panel */}
@@ -101,12 +125,11 @@ function Dashboard() {
           />
         </div>
 
-        {/* Bottom Panel */}
+        {/* Bottom Panel - SINGLE INSTANCE */}
         <BottomPanel takeoffItems={takeoffItems} collapsed={bottomPanelCollapsed} togglePanel={toggleBottomPanel} />
       </div>
     </div>
   )
 }
 
-export default Dashboard
-
+export default GetStarted

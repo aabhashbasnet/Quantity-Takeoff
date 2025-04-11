@@ -21,9 +21,9 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import DemoRequestPopup from './pages/DemoRequestPopup/DemoRequestPopup'; // ✅ Import the popup
 import BookADemo from './pages/BookADemo/BookADemo'; // ✅ Import the popup
-import FreeTrial from './pages/FreeTrial/FreeTrial'; // ✅ Import the popup
-import NewProject from './pages/NewProject/NewProject';
-import Dashboard from './Project/Dashboard';
+// import FreeTrial from './pages/FreeTrial/FreeTrial'; // ✅ Import the popup
+// import NewProject from './pages/NewProject/NewProject';
+import GetStarted from './Project/GetStarted';
 import Blog from './pages/Blog/Blog';
 import HelpCenter from './pages/HelpCenter/HelpCenter';
 import VideoTutorials from './pages/VideoTutorials/VideoTutorials';
@@ -32,9 +32,6 @@ import Careers from './pages/Careers/Careers';
 import Portfolio from './pages/Portfolio/Portfolio';
 // import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import TermsOfService from './pages/TermsOfService/TermsOfService';
-// import NewProjectModal from './Project/NewProjectModal';
-// import Upload from './pages/Upload/Upload';
-
 
 function App() {
   const location = useLocation();
@@ -52,24 +49,31 @@ function App() {
     }
   }, [location.pathname]);
 
+  // Define routes where Navbar and Footer should not be displayed
+  const excludeNavbarAndFooter = ["/get-started"];
+
   return (
     <>
-      <Navbar />
+      {/* Conditionally render Navbar */}
+      {!excludeNavbarAndFooter.includes(location.pathname) && <Navbar />}
 
       {/* ✅ Show popup only on homepage */}
       {showPopup && <DemoRequestPopup onClose={() => setShowPopup(false)} />}
 
       <Routes>
-        <Route path="/" element={
-          <>
-            <Hero />
-            <Features />
-            <Benefits />
-            <Pricing />
-            <Testimonials />
-            <CTA />
-          </>
-        }/>
+        <Route
+          path="/"
+          element={
+            <>
+              <Hero />
+              <Features />
+              <Benefits />
+              <Pricing />
+              <Testimonials />
+              <CTA />
+            </>
+          }
+        />
         <Route path="/contractors" element={<Contractors />} />
         <Route path="/sub-contractors" element={<SubContractors />} />
         <Route path="/suppliers" element={<Suppliers />} />
@@ -82,9 +86,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/book-a-demo" element={<BookADemo />} />
-        <Route path="/free-trial" element={<FreeTrial />} />
-        <Route path="/new-project" element={<NewProject />} />
-        <Route path="/get-started" element={<Dashboard />} />
+        {/* <Route path="/free-trial" element={<FreeTrial />} /> */}
+        {/* <Route path="/new-project" element={<NewProject />} /> */}
+        <Route path="/get-started" element={<GetStarted />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/help" element={<HelpCenter />} />
         <Route path="/tutorials" element={<VideoTutorials />} />
@@ -93,12 +97,10 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         {/* <Route path="/privacy" element={<PrivacyPolicy />} /> */}
         <Route path="/terms" element={<TermsOfService />} />
-        {/* <Route path="/get-started" element={<NewProjectModal />} /> */}
-        {/* <Route path="/upload" element={<Upload />} /> */}
-      
       </Routes>
 
-      <Footer />
+      {/* Conditionally render Footer */}
+      {!excludeNavbarAndFooter.includes(location.pathname) && <Footer />}
     </>
   );
 }

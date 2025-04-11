@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import 'animate.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [fullName, setFullName] = useState('');
@@ -9,10 +9,27 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [agreeTerms, setAgreeTerms] = useState(false);
 
+  const navigate = useNavigate(); // ⬅️ Hook for navigation
+
   const handleSignUp = (e) => {
     e.preventDefault();
-    // Add validation and API logic here
+
+    // Add basic validation
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+
+    if (!agreeTerms) {
+      alert("You must agree to the terms and conditions.");
+      return;
+    }
+
+    // Simulate API call or validation logic
     console.log('Signing up:', { fullName, email, password, confirmPassword, agreeTerms });
+
+    // ✅ Redirect to login page after successful signup
+    navigate("/login");
   };
 
   return (
@@ -22,9 +39,7 @@ const SignUp = () => {
         <form onSubmit={handleSignUp} className="space-y-6">
           {/* Full Name Field */}
           <div>
-            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
-              Full Name
-            </label>
+            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Full Name</label>
             <input
               id="fullName"
               type="text"
@@ -38,9 +53,7 @@ const SignUp = () => {
 
           {/* Email Field */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-              Email Address
-            </label>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
             <input
               id="email"
               type="email"
@@ -52,11 +65,9 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Password Field */}
+          {/* Password Fields */}
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-              Password
-            </label>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
             <input
               id="password"
               type="password"
@@ -68,11 +79,8 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Confirm Password Field */}
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-              Confirm Password
-            </label>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
             <input
               id="confirmPassword"
               type="password"
@@ -84,7 +92,7 @@ const SignUp = () => {
             />
           </div>
 
-          {/* Terms and Conditions */}
+          {/* Terms Checkbox */}
           <div className="flex items-center">
             <input
               id="terms"
@@ -112,7 +120,6 @@ const SignUp = () => {
           </div>
         </form>
 
-        {/* Already have an account */}
         <p className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{' '}
           <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">

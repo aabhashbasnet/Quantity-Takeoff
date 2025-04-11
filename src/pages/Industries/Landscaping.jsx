@@ -1,11 +1,12 @@
 import React,{useEffect} from 'react';
+import BookADemo from '../../components/Buttons/BookADemo';
 
 const Landscaping = () => {
       useEffect(() => {
         window.scrollTo(0, 0);
       }, []);
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-16 mt-16">
       {/* Hero Section */}
       <section className="pt-24 pb-16 text-center">
         <div className="max-w-7xl mx-auto px-6">
@@ -16,9 +17,7 @@ const Landscaping = () => {
             Automate measurements, material estimation, and bidding processes for landscaping projects.
           </p>
           <div className="flex justify-center gap-4">
-            <button className="bg-green-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-700 transition-all">
-              Get Started
-            </button>
+            <BookADemo className='bg-green-600 hover:bg-green-700'/>
             <button className="border-2 border-green-600 text-green-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-green-50 transition-all">
               Learn More
             </button>
